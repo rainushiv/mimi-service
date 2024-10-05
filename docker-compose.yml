@@ -1,0 +1,22 @@
+version: '3.9'
+services:
+  api-server:
+    image: mimi-api
+    ports:
+      - "4000:4000"
+    networks:
+      - mimi-mern
+    volumes:
+      - ./mimi-logs:/build/log/
+
+  react-app:
+    image: mimi-web
+    stdin_open: true
+    ports:
+      - "3000:3000"
+    networks:
+      - mimi-mern
+
+networks:
+  mimi-mern:
+    driver: bridge
