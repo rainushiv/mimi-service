@@ -9,7 +9,7 @@ services:
     environment:
       - NODE_ENV=production
     build:
-      context: ./mimi-api
+      context: ../mimi-api
     networks:
       - mimi-net
     ports:
@@ -17,7 +17,7 @@ services:
   mimi-web:
     container_name: mimi-web
     build:
-      context: ./mimi-web
+      context: ../mimi-web
       args:
         API_URL: "https://mimi.shivalry.dev"
     stdin_open: true
